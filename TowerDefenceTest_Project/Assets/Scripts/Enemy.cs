@@ -2,17 +2,23 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy : MonoBehaviour
+public class Enemy : MonoBehaviour, IEnemy
 {
+    [SerializeField] private HpBar hpBar;
     [SerializeField] private float speed;
+    [SerializeField] private int maxHp;
 
     private int waypointIndex;
     private Transform destination;
+    private float currentHp;
+    private bool isAlive;
 
     void Start()
     {
         waypointIndex = 0;
         destination = GameManager.I.GetDestination(waypointIndex);
+        currentHp = maxHp;
+        isAlive = true;
     }
 
     void Update()
@@ -29,6 +35,24 @@ public class Enemy : MonoBehaviour
 
     private void EndPointReached()
     {
+        isAlive = false;
         Destroy(gameObject);
     }
+
+    private void Die()
+    {
+        isAlive = false;
+        Destroy(gameObject);
+    }
+
+    public void TakeDamage(float damage)
+    {
+        currentHp -= damage;
+        hpBar.SetAmount(currentHp / maxHp);
+        if (currentHp <= 0)
+            Die();
+    }
+
+    public Vector3 Position => transform.position;
+    public bool IsAlive => isAlive;
 }

@@ -14,6 +14,7 @@ public class GameManager : MonoBehaviour
     private int enemySpawnCount;
     private float beforeNextEnemy;
     private float beforeNextWave;
+    private bool pause;
 
     void Awake()
     { 
@@ -22,6 +23,7 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
+        InputHandle();
         if (beforeNextWave <= 0)
             SpawnWave();
         if (beforeNextEnemy <= 0)
@@ -52,5 +54,24 @@ public class GameManager : MonoBehaviour
         waveIndex++;
         enemySpawnCount += enemyInWave;
         beforeNextWave = waveSpawnDelay;
+    }
+
+    private void InputHandle()
+    {
+        if(Input.GetKeyDown(KeyCode.Space))
+        {
+            Pause = !pause;
+        }
+    }
+
+    private bool Pause
+    {
+        get => pause;
+        set
+        {
+            pause = value;
+            if (pause) Time.timeScale = 0;
+            else Time.timeScale = 1;
+        }
     }
 }
