@@ -262,6 +262,8 @@ MonoBehaviour:
   hpBar: {fileID: 7302242603403425728}
   speed: 5
   maxHp: 8
+  damage: 1
+  gold: 2
 --- !u!58 &8841957330156208435
 CircleCollider2D:
   m_ObjectHideFlags: 0

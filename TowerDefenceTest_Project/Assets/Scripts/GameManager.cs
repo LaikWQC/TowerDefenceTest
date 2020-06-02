@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    [SerializeField] private Transform EnemyFolder;
     [SerializeField] private WayPoints wayPoints;
     [SerializeField] int enemyInWave;
     [SerializeField] float enemySpawnDelay;
@@ -39,12 +40,18 @@ public class GameManager : MonoBehaviour
         return wayPoints.GetWaypoint(waypointIndex);
     }
 
+    public void GameOver()
+    {
+
+    }
+
     private void SpawnEnemy()
     {
         if(enemySpawnCount>0)
         {
             enemySpawnCount--;
-            Instantiate(GameAssets.I.EnemyPf, wayPoints.StartLocation, Quaternion.identity);
+            var enemy = Instantiate(GameAssets.I.EnemyPf, wayPoints.StartLocation, Quaternion.identity);
+            enemy.transform.SetParent(EnemyFolder);
             beforeNextEnemy = enemySpawnDelay;
         }        
     }

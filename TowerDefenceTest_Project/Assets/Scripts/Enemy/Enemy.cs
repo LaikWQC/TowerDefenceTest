@@ -7,6 +7,8 @@ public class Enemy : MonoBehaviour, IEnemy
     [SerializeField] private HpBar hpBar;
     [SerializeField] private float speed;
     [SerializeField] private int maxHp;
+    [SerializeField] private int damage;
+    [SerializeField] private int gold;
 
     private int waypointIndex;
     private Transform destination;
@@ -35,12 +37,14 @@ public class Enemy : MonoBehaviour, IEnemy
 
     private void EndPointReached()
     {
+        ResourcesManager.I.TakeDamage(damage);
         isAlive = false;
         Destroy(gameObject);
     }
 
     private void Die()
     {
+        ResourcesManager.I.AddGold(gold);
         isAlive = false;
         Destroy(gameObject);
     }
