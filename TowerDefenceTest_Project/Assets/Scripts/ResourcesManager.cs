@@ -21,7 +21,7 @@ public class ResourcesManager : MonoBehaviour
     private void Start()
     {
         CurrentGold = 0;
-        CurrentLifes = 10;
+        CurrentLifes = 1;
     }
 
     public void AddGold(int amount)

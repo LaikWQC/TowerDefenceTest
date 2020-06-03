@@ -16,7 +16,7 @@ public class Tower : MonoBehaviour
 
     void Start()
     {
-        //rangeImage.SetActive(false);
+        rangeImage.SetActive(false);
         rangeImage.transform.localScale = new Vector3(2 * range, 2 * range);
 
         attackDelay = 1 / attackSpeed;
@@ -65,7 +65,6 @@ public class Tower : MonoBehaviour
             target = FindTarget();
             if (target!=null)
             {
-                Debug.Log(Vector2.Distance(target.Position, transform.position));
                 target.TakeDamage(damage);
                 nextAttackTime = Time.time + attackDelay;
             }

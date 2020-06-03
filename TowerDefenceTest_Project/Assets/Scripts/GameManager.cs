@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] int enemyInWave;
     [SerializeField] float enemySpawnDelay;
     [SerializeField] float waveSpawnDelay;
+    [SerializeField] GameOver GameOverMenu;
 
     private static GameManager i;
     private int waveIndex;
@@ -16,6 +17,7 @@ public class GameManager : MonoBehaviour
     private float beforeNextEnemy;
     private float beforeNextWave;
     private bool pause;
+    private int score;
 
     void Awake()
     { 
@@ -42,7 +44,13 @@ public class GameManager : MonoBehaviour
 
     public void GameOver()
     {
+        Pause = true;
+        GameOverMenu.Activate(score);
+    }
 
+    public void AddScore()
+    {
+        score++;
     }
 
     private void SpawnEnemy()

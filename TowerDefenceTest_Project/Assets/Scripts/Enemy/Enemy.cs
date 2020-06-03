@@ -45,6 +45,7 @@ public class Enemy : MonoBehaviour, IEnemy
     private void Die()
     {
         ResourcesManager.I.AddGold(gold);
+        GameManager.I.AddScore();
         isAlive = false;
         Destroy(gameObject);
     }
