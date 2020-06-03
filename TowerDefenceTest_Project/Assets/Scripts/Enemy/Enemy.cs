@@ -20,16 +20,15 @@ public class Enemy : MonoBehaviour, IEnemy
         waypointIndex = 0;
         destination = GameManager.I.GetDestination(waypointIndex);
         isAlive = true;
-        Setup();
     }
 
-    public void Setup()
+    public void Setup(EnemyDummy dummy)
     {
-        speed = DefaultValues.I.enemySpeed;
-        maxHp = DefaultValues.I.enemyMaxHp;
+        speed = dummy.Speed;
+        maxHp = dummy.MaxHp;
         currentHp = maxHp;
-        damage = DefaultValues.I.enemyDamage;
-        gold = DefaultValues.I.enemyGold;
+        damage = dummy.Damage;
+        gold = dummy.Gold;
     }
 
     void Update()

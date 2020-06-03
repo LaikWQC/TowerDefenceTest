@@ -13,7 +13,7 @@ public class DefaultValues : MonoBehaviour
 
     public static DefaultValues I => i;
 
-    public int enemyInWave;
+    public int extraEnemyInWave;
     public float enemySpawnDelay;
     public float waveSpawnDelay;
 

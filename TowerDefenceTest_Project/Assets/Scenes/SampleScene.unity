@@ -402,9 +402,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EnemyFolder: {fileID: 773004952}
   wayPoints: {fileID: 2037869578}
-  enemyInWave: 5
-  enemySpawnDelay: 0.2
-  waveSpawnDelay: 5
   GameOverMenu: {fileID: 1837880148}
   StatPanel: {fileID: 1193155961}
 --- !u!4 &168511642
@@ -1020,6 +1017,61 @@ Transform:
   m_Father: {fileID: 2037869579}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &603031703
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 603031704}
+  - component: {fileID: 603031705}
+  m_Layer: 0
+  m_Name: DefaultValues
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &603031704
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 603031703}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 689521911}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &603031705
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 603031703}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b193c831fa49534d9bbcd7805b4f540, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  extraEnemyInWave: 5
+  enemySpawnDelay: 0.2
+  waveSpawnDelay: 1
+  startingGold: 5
+  startingLifes: 20
+  enemySpeed: 5
+  enemyMaxHp: 5
+  enemyDamage: 1
+  enemyGold: 2
+  towerRange: 3
+  towerDamage: 5
+  towerAttackSpeed: 2
 --- !u!1 &613733621
 GameObject:
   m_ObjectHideFlags: 0
@@ -1281,6 +1333,7 @@ Transform:
   - {fileID: 1081936982}
   - {fileID: 168511642}
   - {fileID: 2019306874}
+  - {fileID: 603031704}
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -9154,7 +9207,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 14
+    m_FontSize: 27
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 10
@@ -10324,9 +10377,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b6a2809055c71d45bf2419d815b381e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  range: 3
-  damage: 5
-  attackSpeed: 2
   rangeImage: {fileID: 353917118}
 --- !u!212 &1990902363
 SpriteRenderer:

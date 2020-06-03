@@ -11,29 +11,23 @@ public class GameManager : MonoBehaviour
 
     private static GameManager i;
     private int waveIndex;
-    private int enemySpawnCount;
     private float beforeNextEnemy;
     private float beforeNextWave;
     private bool pause;
     private int score;
+    private List<EnemyDummy> enemies;
 
     void Awake()
     { 
         i = this;
+        enemies = new List<EnemyDummy>();
     }
 
     private void Update()
     {
         InputHandle();
-        if (beforeNextWave <= 0)
-            SpawnWave();
-        if (beforeNextEnemy <= 0)
-            SpawnEnemy();
-        beforeNextWave -= Time.deltaTime;
-        beforeNextEnemy -= Time.deltaTime;
+        Spawn();
     }
-
-    public static GameManager I => i;
 
     public Transform GetDestination(int waypointIndex)
     {
@@ -51,24 +45,46 @@ public class GameManager : MonoBehaviour
         score++;
     }
 
-    private void SpawnEnemy()
+    private void Spawn()
     {
-        if(enemySpawnCount>0)
-        {
-            enemySpawnCount--;
-            var enemy = Instantiate(GameAssets.I.EnemyPf, wayPoints.StartLocation, Quaternion.identity);
-            enemy.transform.SetParent(EnemyFolder);
-            beforeNextEnemy = DefaultValues.I.enemySpawnDelay;
-        }        
+        if (beforeNextWave <= 0)
+            SpawnWave();
+        if (beforeNextEnemy <= 0)
+            SpawnEnemy();
+
+        if (enemies.Count > 0)
+            beforeNextEnemy -= Time.deltaTime;
+        else
+            beforeNextWave -= Time.deltaTime;
+    }
+
+    private void SpawnEnemy()
+    {        
+        var enemy = Instantiate(GameAssets.I.EnemyPf, wayPoints.StartLocation, Quaternion.identity);        
+        enemy.transform.SetParent(EnemyFolder);
+        enemy.GetComponent<IEnemy>()?.Setup(enemies[0]);
+
+        beforeNextEnemy = DefaultValues.I.enemySpawnDelay;
+        enemies.RemoveAt(0);
     }
 
     private void SpawnWave()
     {
         waveIndex++;
-        enemySpawnCount += DefaultValues.I.enemyInWave;
+        var dummy = new EnemyDummy(
+                DefaultValues.I.enemySpeed,
+                DefaultValues.I.enemyMaxHp + waveIndex,
+                DefaultValues.I.enemyDamage,
+                DefaultValues.I.enemyGold);
+
+        int enemySpawnCount = Random.Range(waveIndex, waveIndex + DefaultValues.I.extraEnemyInWave);
+        for (int k = 0; k < enemySpawnCount; k++)
+        {
+            enemies.Add(dummy);
+        }
         beforeNextWave = DefaultValues.I.waveSpawnDelay;
 
-        StatPanel.SetPanel(waveIndex, DefaultValues.I.enemyInWave, 0, 0, 0, 0);
+        StatPanel.SetPanel(waveIndex, enemySpawnCount, dummy.MaxHp, dummy.Speed, dummy.Damage, dummy.Gold);
     }
 
     private void InputHandle()
@@ -89,4 +105,6 @@ public class GameManager : MonoBehaviour
             else Time.timeScale = 1;
         }
     }
+
+    public static GameManager I => i;
 }

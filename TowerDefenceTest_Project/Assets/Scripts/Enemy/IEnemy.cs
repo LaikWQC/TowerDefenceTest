@@ -5,4 +5,5 @@ public interface IEnemy
     Vector3 Position { get; }
     bool IsAlive { get; }
     void TakeDamage(float damage);
+    void Setup(EnemyDummy dummy);
 }
