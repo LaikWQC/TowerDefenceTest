@@ -5,22 +5,31 @@ using UnityEngine;
 public class Enemy : MonoBehaviour, IEnemy
 {
     [SerializeField] private HpBar hpBar;
-    [SerializeField] private float speed;
-    [SerializeField] private int maxHp;
-    [SerializeField] private int damage;
-    [SerializeField] private int gold;
 
     private int waypointIndex;
-    private Transform destination;
+    private float speed;
+    private int maxHp;
     private float currentHp;
+    private int damage;
+    private int gold;
     private bool isAlive;
+    private Transform destination;
 
     void Start()
     {
         waypointIndex = 0;
         destination = GameManager.I.GetDestination(waypointIndex);
-        currentHp = maxHp;
         isAlive = true;
+        Setup();
+    }
+
+    public void Setup()
+    {
+        speed = DefaultValues.I.enemySpeed;
+        maxHp = DefaultValues.I.enemyMaxHp;
+        currentHp = maxHp;
+        damage = DefaultValues.I.enemyDamage;
+        gold = DefaultValues.I.enemyGold;
     }
 
     void Update()

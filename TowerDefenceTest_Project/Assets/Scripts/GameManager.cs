@@ -5,10 +5,7 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     [SerializeField] private Transform EnemyFolder;
-    [SerializeField] private WayPoints wayPoints;
-    [SerializeField] private int enemyInWave;
-    [SerializeField] private float enemySpawnDelay;
-    [SerializeField] private float waveSpawnDelay;
+    [SerializeField] private WayPoints wayPoints;    
     [SerializeField] private GameOver GameOverMenu;
     [SerializeField] private EnemyStatPanel StatPanel;
 
@@ -61,17 +58,17 @@ public class GameManager : MonoBehaviour
             enemySpawnCount--;
             var enemy = Instantiate(GameAssets.I.EnemyPf, wayPoints.StartLocation, Quaternion.identity);
             enemy.transform.SetParent(EnemyFolder);
-            beforeNextEnemy = enemySpawnDelay;
+            beforeNextEnemy = DefaultValues.I.enemySpawnDelay;
         }        
     }
 
     private void SpawnWave()
     {
         waveIndex++;
-        enemySpawnCount += enemyInWave;
-        beforeNextWave = waveSpawnDelay;
+        enemySpawnCount += DefaultValues.I.enemyInWave;
+        beforeNextWave = DefaultValues.I.waveSpawnDelay;
 
-        StatPanel.SetPanel(waveIndex, enemyInWave, 0, 0, 0, 0);
+        StatPanel.SetPanel(waveIndex, DefaultValues.I.enemyInWave, 0, 0, 0, 0);
     }
 
     private void InputHandle()

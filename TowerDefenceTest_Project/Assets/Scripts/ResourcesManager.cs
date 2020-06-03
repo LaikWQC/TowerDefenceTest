@@ -20,8 +20,8 @@ public class ResourcesManager : MonoBehaviour
 
     private void Start()
     {
-        CurrentGold = 0;
-        CurrentLifes = 1;
+        CurrentGold = DefaultValues.I.startingGold;
+        CurrentLifes = DefaultValues.I.startingLifes;
     }
 
     public void AddGold(int amount)

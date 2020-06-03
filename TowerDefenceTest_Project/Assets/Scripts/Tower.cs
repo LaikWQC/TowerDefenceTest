@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class Tower : MonoBehaviour
 {
-    [SerializeField] float range;
-    [SerializeField] float damage;
-    [SerializeField] float attackSpeed;
-
     [SerializeField] GameObject rangeImage;
+
+    float range;
+    float damage;
+    float attackSpeed;
 
     float attackDelay;
     float nextAttackTime;
@@ -16,6 +16,10 @@ public class Tower : MonoBehaviour
 
     void Start()
     {
+        range = DefaultValues.I.towerRange;
+        damage = DefaultValues.I.towerDamage;
+        attackSpeed = DefaultValues.I.towerAttackSpeed;
+
         rangeImage.SetActive(false);
         rangeImage.transform.localScale = new Vector3(2 * range, 2 * range);
 
