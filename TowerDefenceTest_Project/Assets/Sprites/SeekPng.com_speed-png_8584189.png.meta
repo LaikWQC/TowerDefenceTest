@@ -1,0 +1,410 @@
+fileFormatVersion: 2
+guid: 0175225c57ef27b40b9a46ca94583c6c
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 8724639429697428085
+    second: SeekPng.com_speed-png_8584189_0
+  - first:
+      213: -6059982862417425364
+    second: SeekPng.com_speed-png_8584189_1
+  - first:
+      213: -1691976772359791883
+    second: SeekPng.com_speed-png_8584189_2
+  - first:
+      213: -7003576598045482948
+    second: SeekPng.com_speed-png_8584189_3
+  - first:
+      213: -2089017667372432739
+    second: SeekPng.com_speed-png_8584189_4
+  - first:
+      213: -3994392949948734001
+    second: SeekPng.com_speed-png_8584189_5
+  - first:
+      213: -2829671792881331452
+    second: SeekPng.com_speed-png_8584189_6
+  - first:
+      213: 2168244126267503954
+    second: SeekPng.com_speed-png_8584189_7
+  - first:
+      213: -980512554832604171
+    second: SeekPng.com_speed-png_8584189_8
+  - first:
+      213: 3487218030257171074
+    second: SeekPng.com_speed-png_8584189_9
+  - first:
+      213: -3848342202970027405
+    second: SeekPng.com_speed-png_8584189_10
+  - first:
+      213: -31227898306999278
+    second: SeekPng.com_speed-png_8584189_11
+  - first:
+      213: 1860373263383952227
+    second: SeekPng.com_speed-png_8584189_12
+  - first:
+      213: 726737458294142735
+    second: SeekPng.com_speed-png_8584189_13
+  - first:
+      213: 6266102439862161126
+    second: SeekPng.com_speed-png_8584189_14
+  - first:
+      213: 4118257081726978714
+    second: SeekPng.com_speed-png_8584189_15
+  - first:
+      213: 4533760559226192510
+    second: SeekPng.com_speed-png_8584189_16
+  - first:
+      213: -2908006024799836746
+    second: SeekPng.com_speed-png_8584189_17
+  - first:
+      213: -2803815944951562614
+    second: SeekPng.com_speed-png_8584189_18
+  - first:
+      213: 4236019256693326530
+    second: SeekPng.com_speed-png_8584189_19
+  - first:
+      213: -3075665420298249756
+    second: SeekPng.com_speed-png_8584189_20
+  - first:
+      213: -555778646287181295
+    second: SeekPng.com_speed-png_8584189_21
+  - first:
+      213: -4687197291410503560
+    second: SeekPng.com_speed-png_8584189_22
+  - first:
+      213: 6520178869799768834
+    second: SeekPng.com_speed-png_8584189_23
+  - first:
+      213: 6801438884740027819
+    second: SeekPng.com_speed-png_8584189_24
+  - first:
+      213: 9004179104856549931
+    second: SeekPng.com_speed-png_8584189_25
+  - first:
+      213: -3636925548706478492
+    second: SeekPng.com_speed-png_8584189_26
+  - first:
+      213: 6652058872192520775
+    second: SeekPng.com_speed-png_8584189_27
+  - first:
+      213: 7398474220388031424
+    second: SeekPng.com_speed-png_8584189_28
+  - first:
+      213: -3955205515260330606
+    second: SeekPng.com_speed-png_8584189_29
+  - first:
+      213: -7331291178720275121
+    second: SeekPng.com_speed-png_8584189_30
+  - first:
+      213: -1052739272706131382
+    second: SeekPng.com_speed-png_8584189_31
+  - first:
+      213: -3803783909270689634
+    second: SeekPng.com_speed-png_8584189_32
+  - first:
+      213: 4469086656426986524
+    second: SeekPng.com_speed-png_8584189_33
+  - first:
+      213: 7994639768188681319
+    second: SeekPng.com_speed-png_8584189_34
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: SeekPng.com_speed-png_8584189_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 335.3333
+        width: 176.33333
+        height: 167.66667
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 57a5b701655241970800000000000000
+      internalID: 8724639429697428085
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SeekPng.com_speed-png_8584189_1
+      rect:
+        serializedVersion: 2
+        x: 176
+        y: 335.3333
+        width: 176.33333
+        height: 167.66667
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c2c87ac91bd96eba0800000000000000
+      internalID: -6059982862417425364
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SeekPng.com_speed-png_8584189_2
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 335.3333
+        width: 176.33333
+        height: 167.66667
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5fa584b0714e488e0800000000000000
+      internalID: -1691976772359791883
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SeekPng.com_speed-png_8584189_3
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 168.33333
+        width: 176.33333
+        height: 167.66667
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c30a24cc03c4ece90800000000000000
+      internalID: -7003576598045482948
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SeekPng.com_speed-png_8584189_4
+      rect:
+        serializedVersion: 2
+        x: 176
+        y: 168.33333
+        width: 176.33333
+        height: 167.66667
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d9240c6ef715203e0800000000000000
+      internalID: -2089017667372432739
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SeekPng.com_speed-png_8584189_5
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 168.33333
+        width: 176.33333
+        height: 167.66667
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fc52bf476c01198c0800000000000000
+      internalID: -3994392949948734001
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SeekPng.com_speed-png_8584189_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1.3333282
+        width: 176.33333
+        height: 167.66667
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4039d522f7cfab8d0800000000000000
+      internalID: -2829671792881331452
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SeekPng.com_speed-png_8584189_7
+      rect:
+        serializedVersion: 2
+        x: 176
+        y: 1.3333282
+        width: 176.33333
+        height: 167.66667
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 25570848b86271e10800000000000000
+      internalID: 2168244126267503954
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SeekPng.com_speed-png_8584189_8
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 1.3333282
+        width: 176.33333
+        height: 167.66667
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5f3546fb6058462f0800000000000000
+      internalID: -980512554832604171
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

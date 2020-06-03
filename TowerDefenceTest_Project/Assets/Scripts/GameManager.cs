@@ -6,10 +6,11 @@ public class GameManager : MonoBehaviour
 {
     [SerializeField] private Transform EnemyFolder;
     [SerializeField] private WayPoints wayPoints;
-    [SerializeField] int enemyInWave;
-    [SerializeField] float enemySpawnDelay;
-    [SerializeField] float waveSpawnDelay;
-    [SerializeField] GameOver GameOverMenu;
+    [SerializeField] private int enemyInWave;
+    [SerializeField] private float enemySpawnDelay;
+    [SerializeField] private float waveSpawnDelay;
+    [SerializeField] private GameOver GameOverMenu;
+    [SerializeField] private EnemyStatPanel StatPanel;
 
     private static GameManager i;
     private int waveIndex;
@@ -69,6 +70,8 @@ public class GameManager : MonoBehaviour
         waveIndex++;
         enemySpawnCount += enemyInWave;
         beforeNextWave = waveSpawnDelay;
+
+        StatPanel.SetPanel(waveIndex, enemyInWave, 0, 0, 0, 0);
     }
 
     private void InputHandle()
