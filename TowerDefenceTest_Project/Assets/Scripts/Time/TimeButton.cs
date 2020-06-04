@@ -8,8 +8,6 @@ using UnityEngine.EventSystems;
 public class TimeButton : MonoBehaviour, IPointerClickHandler
 {
     [SerializeField] private MyEnums.GameSpeed speedType;
-    [SerializeField] Sprite OnSprite;
-    [SerializeField] Sprite OffSprite;
 
     private Image image;
 
@@ -22,12 +20,16 @@ public class TimeButton : MonoBehaviour, IPointerClickHandler
 
     public void PressOn()
     {
-        image.sprite = OnSprite;
+        var color = image.color;
+        color.a = 1;
+        image.color = color;
     }
 
     public void PressOff()
     {
-        image.sprite = OffSprite;
+        var color = image.color;
+        color.a = 0.5f;
+        image.color = color;
     }
 
     public void OnPointerClick(PointerEventData eventData)

@@ -13,6 +13,7 @@ public class MyEnums
     public enum GameSpeed
     {
         Pause,
-        Normal
+        Normal,
+        Double
     }
 }

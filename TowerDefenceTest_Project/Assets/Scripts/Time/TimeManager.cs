@@ -7,6 +7,7 @@ public class TimeManager : MonoBehaviour
 {
     private static TimeManager i;
     private MyEnums.GameSpeed gameSpeed;
+    private TimeButton pressedButton;
     private List<TimeButton> buttonsList;
 
     private void Awake()
@@ -23,6 +24,14 @@ public class TimeManager : MonoBehaviour
         {
             ButtonClicked(MyEnums.GameSpeed.Pause);
         }
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            ButtonClicked(MyEnums.GameSpeed.Normal);
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha2))
+        {
+            ButtonClicked(MyEnums.GameSpeed.Double);
+        }
     }
 
     public static TimeManager I => i;
@@ -31,19 +40,34 @@ public class TimeManager : MonoBehaviour
     {
         buttonsList.Add(button);
         if (button.SpeedType == MyEnums.GameSpeed.Normal)
+        {
             button.PressOn();
+            pressedButton = button;
+        }
     }
 
     public void ButtonClicked(TimeButton button)
     {
-        PressOffButtons();
-        if(gameSpeed == button.SpeedType)
+        if(pressedButton == button)
         {
-            GameSpeed = MyEnums.GameSpeed.Normal;
+            if (button.SpeedType == MyEnums.GameSpeed.Pause)
+            {
+                PressOffButtons();
+                var b = buttonsList.FirstOrDefault(x => x.SpeedType == gameSpeed);
+                if (b != null)
+                {
+                    b.PressOn();
+                    pressedButton = b;
+                }
+                GameSpeed = gameSpeed;
+            }
+            else return;
         }
         else
         {
+            PressOffButtons();
             button.PressOn();
+            pressedButton = button;
             GameSpeed = button.SpeedType;
         }
     }
@@ -64,9 +88,9 @@ public class TimeManager : MonoBehaviour
     {
         set
         {
-            gameSpeed = value;
             if (pause) return;
-            switch(gameSpeed)
+
+            switch(value)
             {
                 case MyEnums.GameSpeed.Pause:
                     Time.timeScale = 0;
@@ -74,7 +98,12 @@ public class TimeManager : MonoBehaviour
                 case MyEnums.GameSpeed.Normal:
                     Time.timeScale = 1;
                     break;
+                case MyEnums.GameSpeed.Double:
+                    Time.timeScale = 2;
+                    break;
             }
+            if (value != MyEnums.GameSpeed.Pause)
+                gameSpeed = value;
         }
     }
 
@@ -87,7 +116,7 @@ public class TimeManager : MonoBehaviour
             if (pause)
                 Time.timeScale = 0;
             else
-                GameSpeed = gameSpeed;
+                GameSpeed = pressedButton?.SpeedType ?? MyEnums.GameSpeed.Normal;
         }
     }
 }
