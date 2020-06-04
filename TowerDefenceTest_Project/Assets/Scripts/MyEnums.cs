@@ -9,4 +9,10 @@ public class MyEnums
         AddDamage,
         AddSpeed
     }
+
+    public enum GameSpeed
+    {
+        Pause,
+        Normal
+    }
 }

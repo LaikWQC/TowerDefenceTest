@@ -7,14 +7,15 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Transform EnemyFolder;
     [SerializeField] private WayPoints Waypoints;    
     [SerializeField] private GameOver GameoverMenu;
+    [SerializeField] private GameObject PauseMenu;
     [SerializeField] private EnemyStatPanel WaveStatPanel;
 
     private static GameManager i;
     private int waveIndex;
     private float beforeNextEnemy;
     private float beforeNextWave;
-    private bool pause;
     private int score;
+    private bool isGameover;
     private List<EnemyDummy> enemies;
 
     void Awake()
@@ -25,7 +26,7 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        InputHandle();
+        InputHandler();
         Spawn();
     }
 
@@ -36,13 +37,33 @@ public class GameManager : MonoBehaviour
 
     public void GameOver()
     {
-        Pause = true;
+        isGameover = true;
+        TimeManager.I.Pause = true;
         GameoverMenu.Activate(score);
     }
 
     public void AddScore()
     {
         score++;
+    }
+
+    private void InputHandler()
+    {
+        if(Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (isGameover) return;
+
+            if(PauseMenu.activeSelf)
+            {
+                TimeManager.I.Pause = false;
+                PauseMenu.SetActive(false);
+            }
+            else
+            {
+                TimeManager.I.Pause = true;
+                PauseMenu.SetActive(true);
+            }
+        }
     }
 
     private void Spawn()
@@ -85,25 +106,6 @@ public class GameManager : MonoBehaviour
         beforeNextWave = DefaultValues.I.waveSpawnDelay;
 
         WaveStatPanel.SetPanel(waveIndex, enemySpawnCount, dummy.MaxHp, dummy.Speed, dummy.Damage, dummy.Gold);
-    }
-
-    private void InputHandle()
-    {
-        if(Input.GetKeyDown(KeyCode.Space))
-        {
-            Pause = !pause;
-        }
-    }
-
-    private bool Pause
-    {
-        get => pause;
-        set
-        {
-            pause = value;
-            if (pause) Time.timeScale = 0;
-            else Time.timeScale = 1;
-        }
     }
 
     public static GameManager I => i;
