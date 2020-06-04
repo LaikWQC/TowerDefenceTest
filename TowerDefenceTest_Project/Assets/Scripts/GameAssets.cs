@@ -14,4 +14,5 @@ public class GameAssets : MonoBehaviour
     public static GameAssets I => i;
 
     public GameObject EnemyPf;
+    public UpgradeButton UpgradeButton;
 }

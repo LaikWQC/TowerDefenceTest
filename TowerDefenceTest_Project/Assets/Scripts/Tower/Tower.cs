@@ -12,16 +12,21 @@ public class Tower : MonoBehaviour
 
     void Start()
     {
+        rangeImage.SetActive(false);
+        Setup();
+    }
+
+    public void Setup()
+    {
         Range = DefaultValues.I.towerRange;
         Damage = DefaultValues.I.towerDamage;
         AttackSpeed = DefaultValues.I.towerAttackSpeed;
-
-        rangeImage.SetActive(false);
-        rangeImage.transform.localScale = new Vector3(2 * Range, 2 * Range);
-
-        attackDelay = 1 / AttackSpeed;
+        UpgradeList = new List<Upgrade>()
+        {
+            new Upgrade_AddDamage(this, 5, 2),
+            new Upgrade_AddSpeed(this, 5, 0.1f)
+        };
     }
-
     
     void Update()
     {
@@ -71,7 +76,7 @@ public class Tower : MonoBehaviour
         }        
     }
 
-    public bool Select
+    public bool Selected
     {
         set
         {
@@ -79,8 +84,29 @@ public class Tower : MonoBehaviour
         }
     }
 
-    public float Range { get; set; }
-    public float Damage { get; set; }
-    public float AttackSpeed { get; set; }
+    private float range;
+    public float Range 
+    {
+        get => range;
+        set
+        {
+            range = value;
+            rangeImage.transform.localScale = new Vector3(2 * Range, 2 * Range);
+        }
+    }
 
+    public float Damage { get; set; }
+
+    private float attackSpeed;
+    public float AttackSpeed 
+    {
+        get => attackSpeed;
+        set
+        {
+            attackSpeed = value;
+            attackDelay = 1 / AttackSpeed;
+        }
+    }
+
+    public List<Upgrade> UpgradeList { get; set; }
 }
