@@ -477,9 +477,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EnemyFolder: {fileID: 773004952}
-  wayPoints: {fileID: 2037869578}
-  GameOverMenu: {fileID: 1837880148}
-  StatPanel: {fileID: 1193155961}
+  Waypoints: {fileID: 2037869578}
+  GameoverMenu: {fileID: 1837880148}
+  WaveStatPanel: {fileID: 1193155961}
 --- !u!4 &168511642
 Transform:
   m_ObjectHideFlags: 0
@@ -1359,6 +1359,12 @@ MonoBehaviour:
   towerRange: 3
   towerDamage: 5
   towerAttackSpeed: 2
+  DamageUpgradePrice: 5
+  DamageUpgradeValue: 2
+  DamageUpgradePriceIncrease: 2
+  SpeedUpgradePrice: 5
+  SpeedUpgradeValue: 0.2
+  SpeedUpgradePriceIncrease: 2
 --- !u!1 &613733621
 GameObject:
   m_ObjectHideFlags: 0

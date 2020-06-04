@@ -28,4 +28,11 @@ public class DefaultValues : MonoBehaviour
     public float towerRange;
     public float towerDamage;
     public float towerAttackSpeed;
+
+    public int DamageUpgradePrice;
+    public float DamageUpgradeValue;
+    public int DamageUpgradePriceIncrease;
+    public int SpeedUpgradePrice;
+    public float SpeedUpgradeValue;
+    public int SpeedUpgradePriceIncrease;
 }

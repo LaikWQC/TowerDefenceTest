@@ -5,9 +5,9 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     [SerializeField] private Transform EnemyFolder;
-    [SerializeField] private WayPoints wayPoints;    
-    [SerializeField] private GameOver GameOverMenu;
-    [SerializeField] private EnemyStatPanel StatPanel;
+    [SerializeField] private WayPoints Waypoints;    
+    [SerializeField] private GameOver GameoverMenu;
+    [SerializeField] private EnemyStatPanel WaveStatPanel;
 
     private static GameManager i;
     private int waveIndex;
@@ -31,13 +31,13 @@ public class GameManager : MonoBehaviour
 
     public Transform GetDestination(int waypointIndex)
     {
-        return wayPoints.GetWaypoint(waypointIndex);
+        return Waypoints.GetWaypoint(waypointIndex);
     }
 
     public void GameOver()
     {
         Pause = true;
-        GameOverMenu.Activate(score);
+        GameoverMenu.Activate(score);
     }
 
     public void AddScore()
@@ -60,7 +60,7 @@ public class GameManager : MonoBehaviour
 
     private void SpawnEnemy()
     {        
-        var enemy = Instantiate(GameAssets.I.EnemyPf, wayPoints.StartLocation, Quaternion.identity);        
+        var enemy = Instantiate(GameAssets.I.EnemyPf, Waypoints.StartLocation, Quaternion.identity);        
         enemy.transform.SetParent(EnemyFolder);
         enemy.GetComponent<IEnemy>()?.Setup(enemies[0]);
 
@@ -84,7 +84,7 @@ public class GameManager : MonoBehaviour
         }
         beforeNextWave = DefaultValues.I.waveSpawnDelay;
 
-        StatPanel.SetPanel(waveIndex, enemySpawnCount, dummy.MaxHp, dummy.Speed, dummy.Damage, dummy.Gold);
+        WaveStatPanel.SetPanel(waveIndex, enemySpawnCount, dummy.MaxHp, dummy.Speed, dummy.Damage, dummy.Gold);
     }
 
     private void InputHandle()

@@ -21,11 +21,7 @@ public class Tower : MonoBehaviour
         Range = DefaultValues.I.towerRange;
         Damage = DefaultValues.I.towerDamage;
         AttackSpeed = DefaultValues.I.towerAttackSpeed;
-        UpgradeList = new List<Upgrade>()
-        {
-            new Upgrade_AddDamage(this, 5, 2),
-            new Upgrade_AddSpeed(this, 5, 0.1f)
-        };
+        UpgradeList = UpgradeFactory.GetUpgrades(this);
     }
     
     void Update()

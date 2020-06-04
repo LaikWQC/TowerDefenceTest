@@ -19,7 +19,7 @@ public class Upgrade_AddDamage : Upgrade
         {
             tower.Damage += damage;
             tower.UpgradeList.Remove(this);
-            tower.UpgradeList.Add(new Upgrade_AddDamage(tower, price + 2, damage));
+            tower.UpgradeList.Add(new Upgrade_AddDamage(tower, price + DefaultValues.I.DamageUpgradePriceIncrease, damage));
             AfterActivated();
         }
     }

@@ -19,7 +19,7 @@ public class Upgrade_AddSpeed : Upgrade
         {
             tower.AttackSpeed += attackSpeed;
             tower.UpgradeList.Remove(this);
-            tower.UpgradeList.Add(new Upgrade_AddSpeed(tower, price + 2, attackSpeed));
+            tower.UpgradeList.Add(new Upgrade_AddSpeed(tower, price + DefaultValues.I.SpeedUpgradePriceIncrease, attackSpeed));
             AfterActivated();
         }
     }
