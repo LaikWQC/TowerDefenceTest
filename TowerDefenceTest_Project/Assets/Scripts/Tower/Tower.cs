@@ -6,24 +6,20 @@ public class Tower : MonoBehaviour
 {
     [SerializeField] GameObject rangeImage;
 
-    float range;
-    float damage;
-    float attackSpeed;
-
     float attackDelay;
     float nextAttackTime;
     IEnemy target;
 
     void Start()
     {
-        range = DefaultValues.I.towerRange;
-        damage = DefaultValues.I.towerDamage;
-        attackSpeed = DefaultValues.I.towerAttackSpeed;
+        Range = DefaultValues.I.towerRange;
+        Damage = DefaultValues.I.towerDamage;
+        AttackSpeed = DefaultValues.I.towerAttackSpeed;
 
         rangeImage.SetActive(false);
-        rangeImage.transform.localScale = new Vector3(2 * range, 2 * range);
+        rangeImage.transform.localScale = new Vector3(2 * Range, 2 * Range);
 
-        attackDelay = 1 / attackSpeed;
+        attackDelay = 1 / AttackSpeed;
     }
 
     
@@ -34,7 +30,7 @@ public class Tower : MonoBehaviour
 
     IEnemy FindTarget()
     {
-        var colliders = Physics2D.OverlapCircleAll(transform.position, range);
+        var colliders = Physics2D.OverlapCircleAll(transform.position, Range);
 
         IEnemy closestEnemy = null;
         float minDistance = 0;
@@ -69,9 +65,22 @@ public class Tower : MonoBehaviour
             target = FindTarget();
             if (target!=null)
             {
-                target.TakeDamage(damage);
+                target.TakeDamage(Damage);
                 nextAttackTime = Time.time + attackDelay;
             }
         }        
     }
+
+    public bool Select
+    {
+        set
+        {
+            rangeImage.SetActive(value);
+        }
+    }
+
+    public float Range { get; set; }
+    public float Damage { get; set; }
+    public float AttackSpeed { get; set; }
+
 }
