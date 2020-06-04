@@ -13,9 +13,9 @@ public class TowerDetailPanel : MonoBehaviour
 
     public void Setup(Tower tower)
     {
-        DamageText.text = tower.Damage.ToString();
-        RangeText.text = tower.Range.ToString();
-        AttackSpeedText.text = tower.AttackSpeed.ToString();
+        DamageText.text = tower.Damage.ToString("F0");
+        RangeText.text = tower.Range.ToString("F1");
+        AttackSpeedText.text = tower.AttackSpeed.ToString("F1");
 
         ClearUpgrades();
         foreach(var upgrade in tower.UpgradeList.OrderBy(x=>x.Type))

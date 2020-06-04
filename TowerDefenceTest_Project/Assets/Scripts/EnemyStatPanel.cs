@@ -17,7 +17,7 @@ public class EnemyStatPanel : MonoBehaviour
         WaveText.text = wave.ToString();
         CountText.text = count.ToString();
         HpText.text = hp.ToString();
-        SpeedText.text = speed.ToString();
+        SpeedText.text = speed.ToString("F1");
         DamageText.text = damage.ToString();
         GoldText.text = gold.ToString();
     }
