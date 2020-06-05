@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public interface IFindTargetBehaviour
+public interface ITower
 {
-    ITarget FindTarget(ITower tower);
+    Vector3 Position { get; }
+    float Range { get; }
 }

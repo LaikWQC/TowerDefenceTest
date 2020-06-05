@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Tower : MonoBehaviour
+public class Tower : MonoBehaviour, ITower
 {
     [SerializeField] GameObject rangeImage;
 
@@ -80,6 +80,8 @@ public class Tower : MonoBehaviour
             attackDelay = 1 / AttackSpeed;
         }
     }
+
+    public Vector3 Position => transform.position;
 
     public List<Upgrade> UpgradeList { get; set; }
 }

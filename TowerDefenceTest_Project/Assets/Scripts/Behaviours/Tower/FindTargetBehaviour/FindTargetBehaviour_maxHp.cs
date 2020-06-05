@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class FindTargetBehaviour_maxHp : IFindTargetBehaviour
 {
-    public ITarget FindTarget(Tower tower)
+    public ITarget FindTarget(ITower tower)
     {
-        var colliders = Physics2D.OverlapCircleAll(tower.transform.position, tower.Range);
+        var colliders = Physics2D.OverlapCircleAll(tower.Position, tower.Range);
 
         ITarget maxHpEnemy = null;
         float maxHp = 0;

@@ -4,5 +4,5 @@ using UnityEngine;
 
 public interface ILookingForTargetBehaviour
 {
-    bool IsChangeTargetNeeded(Tower tower, ITarget enemy);
+    bool IsChangeTargetNeeded(ITower tower, ITarget enemy);
 }
