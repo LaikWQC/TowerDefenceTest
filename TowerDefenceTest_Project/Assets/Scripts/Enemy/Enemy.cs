@@ -14,10 +14,12 @@ public class Enemy : MonoBehaviour, IEnemy, ITarget, IMovement
     private bool isAlive;
 
     private IEnemyBehaviour behaviour;
+    private IShowDamageBehavior showDamageBh;
 
     void Start()
     {
         behaviour = MovementBehaviourFactory.GetBehaviour(this);
+        showDamageBh = ShowDamageBehaviorFactory.GetBehavior();
         isAlive = true;
     }
 
@@ -53,6 +55,7 @@ public class Enemy : MonoBehaviour, IEnemy, ITarget, IMovement
     public void TakeDamage(float damage)
     {
         currentHp -= damage;
+        showDamageBh.ShowDamage(this, damage);
         hpBar.SetAmount(currentHp / maxHp);
         if (currentHp <= 0)
             Die();
