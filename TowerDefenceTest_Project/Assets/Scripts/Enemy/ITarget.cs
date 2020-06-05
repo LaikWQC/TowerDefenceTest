@@ -7,4 +7,5 @@ public interface ITarget
     Vector3 Position { get; set; }
     bool IsAlive { get; }
     void TakeDamage(float damage);
+    float CurrentHp { get; }
 }

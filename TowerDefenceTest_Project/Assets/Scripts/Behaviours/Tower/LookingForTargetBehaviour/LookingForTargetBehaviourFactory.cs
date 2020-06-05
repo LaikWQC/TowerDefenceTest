@@ -6,7 +6,7 @@ public static class LookingForTargetBehaviourFactory
 {
    public static  ILookingForTargetBehaviour GetBehaviour()
     {
-        //return new LookingForTargetBehaviour_findNew();
-        return new LookingForTargetBehaviour_lockTarget();
+        return new LookingForTargetBehaviour_findNew();
+        //return new LookingForTargetBehaviour_lockTarget();
     }
 }

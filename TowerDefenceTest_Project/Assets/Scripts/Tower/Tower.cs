@@ -10,6 +10,7 @@ public class Tower : MonoBehaviour
     float nextAttackTime;
     ITarget target;
     ILookingForTargetBehaviour lookForBh;
+    IFindTargetBehaviour findBh;
 
     void Start()
     {
@@ -24,41 +25,12 @@ public class Tower : MonoBehaviour
         AttackSpeed = DefaultValues.I.towerAttackSpeed;
         UpgradeList = UpgradeFactory.GetUpgrades(this);
         lookForBh = LookingForTargetBehaviourFactory.GetBehaviour();
+        findBh = FindTargetBehaviourFactory.GetBehaviour();
     }
     
     void Update()
     {
         Attack();
-    }
-
-    ITarget FindTarget()
-    {
-        var colliders = Physics2D.OverlapCircleAll(transform.position, Range);
-
-        ITarget closestEnemy = null;
-        float minDistance = 0;
-        foreach(var collider in colliders)
-        {
-            var enemy = collider.GetComponent<ITarget>();
-            if (enemy != null)
-            {
-                if(closestEnemy == null)
-                {
-                    closestEnemy = enemy;
-                    minDistance = Vector2.Distance(enemy.Position, transform.position);
-                }
-                else
-                {
-                    var distance = Vector2.Distance(enemy.Position, transform.position);
-                    if (distance < minDistance)
-                    {
-                        closestEnemy = enemy;
-                        minDistance = distance;
-                    }
-                }
-            }
-        }
-        return closestEnemy;
     }
 
     void Attack()
@@ -67,7 +39,7 @@ public class Tower : MonoBehaviour
         {
             if(lookForBh.IsChangeTargetNeeded(this, target))
             {
-                target = FindTarget();
+                target = findBh.FindTarget(this);
             }            
             if (target!=null)
             {

@@ -76,4 +76,5 @@ public class Enemy : MonoBehaviour, IEnemy, ITarget, IMovement
     }
     public bool IsAlive => isAlive;
     public float Speed => speed;
+    public float CurrentHp => currentHp;
 }
