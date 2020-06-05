@@ -9,6 +9,7 @@ public class Tower : MonoBehaviour
     float attackDelay;
     float nextAttackTime;
     ITarget target;
+    ILookingForTargetBehaviour lookForBh;
 
     void Start()
     {
@@ -22,6 +23,7 @@ public class Tower : MonoBehaviour
         Damage = DefaultValues.I.towerDamage;
         AttackSpeed = DefaultValues.I.towerAttackSpeed;
         UpgradeList = UpgradeFactory.GetUpgrades(this);
+        lookForBh = LookingForTargetBehaviourFactory.GetBehaviour();
     }
     
     void Update()
@@ -63,7 +65,10 @@ public class Tower : MonoBehaviour
     {
         if (nextAttackTime <= Time.time)
         {
-            target = FindTarget();
+            if(lookForBh.IsChangeTargetNeeded(this, target))
+            {
+                target = FindTarget();
+            }            
             if (target!=null)
             {
                 target.TakeDamage(Damage);
