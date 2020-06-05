@@ -5,20 +5,19 @@ using UnityEngine;
 public class Enemy : MonoBehaviour, IEnemy
 {
     [SerializeField] private HpBar hpBar;
-
-    private int waypointIndex;
+        
     private float speed;
     private int maxHp;
     private float currentHp;
     private int damage;
     private int gold;
     private bool isAlive;
-    private Transform destination;
+
+    private IEnemyBehaviour behaviour;
 
     void Start()
     {
-        waypointIndex = 0;
-        destination = GameManager.I.GetDestination(waypointIndex);
+        behaviour = MovementBehaviourFactory.GetBehaviour(this);
         isAlive = true;
     }
 
@@ -33,21 +32,14 @@ public class Enemy : MonoBehaviour, IEnemy
 
     void Update()
     {
-        transform.position = Vector2.MoveTowards(transform.position, destination.position, speed * Time.deltaTime);
-
-        if(Vector2.Distance(destination.position, transform.position) < 0.05f)
-        {
-            destination = GameManager.I.GetDestination(++waypointIndex);
-            if (destination == null)
-                EndPointReached();
-        }
+        behaviour.UpdateBehaviour();        
     }
 
-    private void EndPointReached()
+    public void EndPointReached()
     {
         ResourcesManager.I.TakeDamage(damage);
         isAlive = false;
-        Destroy(gameObject);
+        behaviour = ReachBehaviourFactory.GetBehaviour(this);
     }
 
     private void Die()
@@ -55,7 +47,7 @@ public class Enemy : MonoBehaviour, IEnemy
         ResourcesManager.I.AddGold(gold);
         GameManager.I.AddScore();
         isAlive = false;
-        Destroy(gameObject);
+        behaviour = DeathBehaviourFactory.GetBehaviour(this);
     }
 
     public void TakeDamage(float damage)
@@ -66,6 +58,19 @@ public class Enemy : MonoBehaviour, IEnemy
             Die();
     }
 
-    public Vector3 Position => transform.position;
+    public void Destroy()
+    {
+        Destroy(gameObject);
+    }
+
+    public Vector3 Position
+    {
+        get => transform.position;
+        set
+        {
+            transform.position = value;
+        }
+    }
     public bool IsAlive => isAlive;
+    public float Speed => speed;
 }
