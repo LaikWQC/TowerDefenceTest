@@ -6,7 +6,15 @@ public static class LookingForTargetBehaviourFactory
 {
    public static  ILookingForTargetBehaviour GetBehaviour()
     {
-        return new LookingForTargetBehaviour_findNew();
-        //return new LookingForTargetBehaviour_lockTarget();
+        switch(Settings.I.LookingBh)
+        {
+            case MyBhEnums.LookingForTarget.FindNew:
+                return new LookingForTargetBehaviour_findNew();
+            case MyBhEnums.LookingForTarget.LockTarget:
+                return new LookingForTargetBehaviour_lockTarget();
+
+            default:
+                return new LookingForTargetBehaviour_findNew();
+        }
     }
 }

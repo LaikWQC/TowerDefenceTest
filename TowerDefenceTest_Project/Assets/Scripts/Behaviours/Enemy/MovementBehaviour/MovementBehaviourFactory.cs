@@ -6,7 +6,10 @@ public static class MovementBehaviourFactory
 {
     public static IEnemyBehaviour GetBehaviour(IMovement enemy)
     {
-        IEnemyBehaviour behaviour = new MovementBehaviour_waypoints(enemy);
+        IEnemyBehaviour behaviour; 
+        
+        behaviour = new MovementBehaviour_waypoints(enemy);
+        
         behaviour.StartBehaviour();
         return behaviour;
     }
