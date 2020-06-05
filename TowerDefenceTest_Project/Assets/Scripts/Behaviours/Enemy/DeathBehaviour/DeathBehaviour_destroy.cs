@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class DeathBehaviour_destroy : IEnemyBehaviour
 {
-    private IEnemy enemy;
+    private IMovement enemy;
 
-    public DeathBehaviour_destroy(IEnemy enemy)
+    public DeathBehaviour_destroy(IMovement enemy)
     {
         this.enemy = enemy;
     }

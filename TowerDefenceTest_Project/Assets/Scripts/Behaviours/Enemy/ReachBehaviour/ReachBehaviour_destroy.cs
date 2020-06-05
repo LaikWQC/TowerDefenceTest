@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class ReachBehaviour_destroy : IEnemyBehaviour
 {
-    private IEnemy enemy;
+    private IMovement enemy;
 
-    public ReachBehaviour_destroy(IEnemy enemy)
+    public ReachBehaviour_destroy(IMovement enemy)
     {
         this.enemy = enemy;
     }

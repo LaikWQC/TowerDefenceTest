@@ -8,7 +8,7 @@ public class Tower : MonoBehaviour
 
     float attackDelay;
     float nextAttackTime;
-    IEnemy target;
+    ITarget target;
 
     void Start()
     {
@@ -29,15 +29,15 @@ public class Tower : MonoBehaviour
         Attack();
     }
 
-    IEnemy FindTarget()
+    ITarget FindTarget()
     {
         var colliders = Physics2D.OverlapCircleAll(transform.position, Range);
 
-        IEnemy closestEnemy = null;
+        ITarget closestEnemy = null;
         float minDistance = 0;
         foreach(var collider in colliders)
         {
-            var enemy = collider.GetComponent<IEnemy>();
+            var enemy = collider.GetComponent<ITarget>();
             if (enemy != null)
             {
                 if(closestEnemy == null)

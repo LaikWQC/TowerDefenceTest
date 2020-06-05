@@ -4,7 +4,7 @@ using UnityEngine;
 
 public static class MovementBehaviourFactory
 {
-    public static IEnemyBehaviour GetBehaviour(IEnemy enemy)
+    public static IEnemyBehaviour GetBehaviour(IMovement enemy)
     {
         IEnemyBehaviour behaviour = new MovementBehaviour_waypoints(enemy);
         behaviour.StartBehaviour();

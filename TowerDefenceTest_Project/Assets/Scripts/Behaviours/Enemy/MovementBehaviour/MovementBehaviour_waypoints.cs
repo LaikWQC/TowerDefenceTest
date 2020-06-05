@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class MovementBehaviour_waypoints : IEnemyBehaviour
 {
-    private IEnemy enemy;
+    private IMovement enemy;
     private int waypointIndex;
     private Transform destination;
 
-    public MovementBehaviour_waypoints(IEnemy enemy)
+    public MovementBehaviour_waypoints(IMovement enemy)
     {
         this.enemy = enemy;
     }
