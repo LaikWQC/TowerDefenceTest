@@ -92,11 +92,7 @@ public class GameManager : MonoBehaviour
     private void SpawnWave()
     {
         waveIndex++;
-        var dummy = new EnemyDummy(
-                DefaultValues.I.enemySpeed,
-                DefaultValues.I.enemyMaxHp + waveIndex,
-                DefaultValues.I.enemyDamage,
-                DefaultValues.I.enemyGold);
+        var dummy = DummyFactory.GetDummy(waveIndex);
 
         int enemySpawnCount = Random.Range(waveIndex, waveIndex + DefaultValues.I.extraEnemyInWave);
         for (int k = 0; k < enemySpawnCount; k++)
